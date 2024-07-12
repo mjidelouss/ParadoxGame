@@ -3,31 +3,72 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background: 255, 255, 255;
+  --foreground: 0, 0, 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.dark {
+  --background: 17, 24, 39;
+  --foreground: 255, 255, 255;
+}
+
+.theme-wrapper {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+}
+
+@keyframes puppyRun {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(100% - 50px);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes carChase {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: calc(100% - 150px);
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes puppyCaught {
+  0% {
+    left: calc(100% - 50px);
   }
+  100% {
+    left: calc(100% - 100px);
+  }
+}
+
+@keyframes carCatch {
+  0% {
+    left: calc(100% - 150px);
+  }
+  100% {
+    left: calc(100% - 100px);
+  }
+}
+
+.animate-puppy-run {
+  animation: puppyRun 10s linear;
+  animation-fill-mode: forwards;
+}
+
+.animate-car-chase {
+  animation: carChase 10s linear;
+  animation-fill-mode: forwards;
+}
+
+.animate-puppy-caught {
+  animation: puppyCaught 0.5s linear;
+  animation-fill-mode: forwards;
+}
+
+.animate-car-catch {
+  animation: carCatch 0.5s linear;
+  animation-fill-mode: forwards;
 }
