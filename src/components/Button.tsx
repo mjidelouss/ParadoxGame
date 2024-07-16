@@ -7,7 +7,7 @@ interface ButtonProps {
 export default function Button({ onClick, children, color }: ButtonProps) {
   return (
     <button
-      className={`bg-${color}-500 hover:bg-${color}-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105`}
+      className={`bg-transparent hover:bg-${color}-500 text-${color}-500 font-semibold hover:text-white py-2 px-4 border border-${color}-500 hover:border-transparent rounded`}
       onClick={onClick}
     >
       {children}

@@ -131,12 +131,15 @@ export default function ParadoxPuppy() {
         }
       `}</style>
 
-      <h1 className={`text-6xl font-bold mb-8 ${honk.className}`}>Paradox Puppy</h1>
-      <h5 className={`text-5xl font-bold mb-8 animate-bounce ${acme.className}`}>Make a decision</h5>
-      <h5 className={`text-5xl font-bold mb-8 animate-bounce ${acme.className}`}>Save <span className='text-red-500'>Puppy</span></h5>
+      <h1 className={`text-6xl font-bold mb-8 ${honk.className}`}>Paradox Glass</h1>
+      <h5 className={`text-5xl font-bold mb-8  ${acme.className}`}>Make a decision</h5>
+      <h5 className={`text-5xl font-bold mb-8 ${acme.className}`}>before the <span className='text-red-500'>Sand</span> runs out</h5>
+
+      {!gameStarted && (
       <div className='flex justify-center'>
-      <Casino />
+        <Casino />
       </div>
+    )}
       
       {!gameStarted ? (
         <div className="space-y-6 mt-8">
@@ -163,11 +166,11 @@ export default function ParadoxPuppy() {
             </Button>
           </div>
           <div>
-            <h3 className={`text-2xl font-bold mb-8 ${eater.className}`}>What is Paradox Puppy?</h3>
+            <h3 className={`text-2xl font-bold mb-8 ${merienda.className}`}>What is Paradox Glass?</h3>
             <p className={merienda.className}>More choices make us less likely to take action. This is called <span className='text-yellow-500'>Analysis Paralysis.</span><br></br>
             Adding constraints helps to <span className='text-red-500'>stop overthinking:</span> fewer choices or limited decision time.<br></br>
-            <span className={`text-3xl ${honk.className}`}>Paradox Puppy</span> incentivizes you to make a decision quickly to save <span className='text-purple-500'>Puppy</span><br></br>
-            from the <span className='text-blue-500'>Overthinking Monster.</span>
+            <span className={`text-green-500`}>Paradox Glass</span> incentivizes you to make a decision quickly before the <span className='text-purple-500'>hourglass</span><br></br>
+            runs out of <span className='text-blue-500'>Sand.</span>
             </p>
           </div>
         </div>
