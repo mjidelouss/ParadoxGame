@@ -1,4 +1,4 @@
-import ParadoxPuppy from '../components/ParadoxPuppy'
+import ParadoxPuppy from '../components/ParadoxGlass'
 import ThemeToggle from '../components/ThemeToggle'
 
 export default function Home() {
