@@ -141,23 +141,46 @@ export default function ParadoxPuppy() {
           }
         }
       `}</style>
-    {!gameStarted && (
-      <div>
-        <h1 className={`text-6xl font-bold mb-8 ${honk.className}`}>
-        Paradox Glass
-      </h1>
-      <h5 className={`text-5xl font-bold mb-8  ${acme.className}`}>
-        Make a decision
-      </h5>
-      <h5 className={`text-5xl font-bold mb-8 ${acme.className}`}>
-        before the <span className="text-red-500">Sand</span> runs out
-      </h5>
-      </div>
-    )}
+      {!gameStarted && (
+        <div className="text-center relative text-foreground">
+          <h1
+            className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold ${honk.className} p-4 rounded-br-lg`}
+          >
+            Paradox Glass
+          </h1>
+          <h5 className={`text-5xl font-bold mb-8  ${acme.className}`}>
+            Make a decision
+          </h5>
+          <h5 className={`text-5xl font-bold mb-8 ${acme.className}`}>
+            before the <span className="text-red-500">Sand</span> runs out
+          </h5>
+        </div>
+      )}
 
       {!gameStarted && (
-        <div className="flex justify-center">
-          <Casino />
+        <div className="relative group">
+          <div className="flex justify-center">
+            <Casino />
+          </div>
+          <div className="absolute inset-0 flex items-center  bg-black bg-opacity-70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 className={`text-2xl font-bold mb-8 ${acme.className}`}>
+              What is Paradox Glass?
+            </h3>
+            <p className={acme.className}>
+              More choices make us less likely to take action.<br></br>This is
+              called{" "}
+              <span className="text-yellow-500">Analysis Paralysis.</span>
+              <br></br>
+              Adding constraints helps to{" "}
+              <span className="text-red-500">stop overthinking:</span> fewer
+              choices or limited decision time.<br></br>
+              <span className={`text-green-500`}>Paradox Glass </span>{" "}
+              incentivizes you to make a decision quickly before the{" "}
+              <span className="text-purple-500">hourglass</span>
+              <br></br>
+              runs out of <span className="text-blue-500">Sand.</span>
+            </p>
+          </div>
         </div>
       )}
 
@@ -181,27 +204,12 @@ export default function ParadoxPuppy() {
             />
           </div>
           <div>
-            <Button color="blue" onClick={startGame}>
+            <button
+              className={`bg-transparent hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded`}
+              onClick={startGame}
+            >
               Start Game
-            </Button>
-          </div>
-          <div>
-            <h3 className={`text-2xl font-bold mb-8 ${acme.className}`}>
-              What is Paradox Glass?
-            </h3>
-            <p className={merienda.className}>
-              More choices make us less likely to take action. This is called{" "}
-              <span className="text-yellow-500">Analysis Paralysis.</span>
-              <br></br>
-              Adding constraints helps to{" "}
-              <span className="text-red-500">stop overthinking:</span> fewer
-              choices or limited decision time.<br></br>
-              <span className={`text-green-500`}>Paradox Glass</span>{" "}
-              incentivizes you to make a decision quickly before the{" "}
-              <span className="text-purple-500">hourglass</span>
-              <br></br>
-              runs out of <span className="text-blue-500">Sand.</span>
-            </p>
+            </button>
           </div>
         </div>
       ) : !gameOver && !choice ? (
@@ -227,20 +235,32 @@ export default function ParadoxPuppy() {
         </>
       ) : (
         <div className="space-y-4">
-          {!choice ? (
-            <div className="space-y-4">
-              <div className="flex justify-center">
-            <SnowMan />
-          </div>
-          <div className="mt-6">
-          <p className={`text-2xl mb-4 me-5 ${audiowide.className}`}>Game Over! </p>
-            <p className={`text-2xl me-5 ${audiowide.className}`}>You ran out of time!</p>
-          </div>
+          {choice ? (
+            <div className="flex flex-col items-center">
+              <Congrats />
+              <div className="mt-6 py-4">
+                <p className={`text-2xl mb-4 ${audiowide.className}`}>
+                Nice pick!
+                </p>
+                <p className={`text-2xl ${audiowide.className}`}>
+                Let’s see what happens! 🎉
+                </p>
+              </div>
             </div>
           ) : (
-            <div className="flex justify-center">
-            <Congrats />
-          </div>
+            <div className="space-y-4">
+              <div className="flex justify-center me-2">
+                <SnowMan />
+              </div>
+              <div className="mt-6 py-4">
+                <p className={`text-2xl mb-4 mt-4 ${audiowide.className}`}>
+                  Game Over!
+                </p>
+                <p className={`text-2xl ${audiowide.className}`}>
+                  You ran out of time!
+                </p>
+              </div>
+            </div>
           )}
           <Button color="red" onClick={resetGame}>
             Play Again
