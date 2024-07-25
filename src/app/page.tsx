@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import ParadoxPuppy from '../components/ParadoxGlass'
 import ThemeToggle from '../components/ThemeToggle'
 
@@ -6,6 +7,7 @@ export default function Home() {
     <main className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
       <ThemeToggle />
       <ParadoxPuppy />
+      <Footer/>
     </main>
   )
 }
